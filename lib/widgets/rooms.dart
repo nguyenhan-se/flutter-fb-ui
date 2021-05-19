@@ -1,13 +1,12 @@
-import 'package:fb_clone/config/palette.dart';
-import 'package:fb_clone/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 
+import 'package:fb_clone/widgets/profile_avatar.dart';
 import 'package:fb_clone/models/user_model.dart';
 
 class Rooms extends StatelessWidget {
   final List<User> onlineUsers;
 
-  const Rooms({Key key, @required this.onlineUsers}) : super(key: key);
+  const Rooms({Key? key, required this.onlineUsers}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class Rooms extends StatelessWidget {
 }
 
 class _CreateRoomButton extends StatelessWidget {
-  const _CreateRoomButton({Key key}) : super(key: key);
+  const _CreateRoomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +45,11 @@ class _CreateRoomButton extends StatelessWidget {
           side: BorderSide(width: 1.0, color: Colors.blueAccent)),
       child: Row(
         children: [
-          ShaderMask(
-              shaderCallback: (rect) =>
-                  Palette.createRoomGradient.createShader(rect),
-              child: Icon(Icons.video_call, color: Colors.white, size: 35.0)),
+          // ShaderMask(
+          //     shaderCallback: (rect) =>
+          //         Palette.createRoomGradient.createShader(rect),
+          //     child: Icon(Icons.video_call, color: Colors.white, size: 35.0)),
+          Icon(Icons.video_call, color: Colors.purple, size: 35.0),
           const SizedBox(
             width: 4.0,
           ),

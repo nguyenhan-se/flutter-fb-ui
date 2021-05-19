@@ -4,10 +4,11 @@ import 'package:fb_clone/widgets/widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fb_clone/models/post_model.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class PostContainer extends StatelessWidget {
   final Post post;
-  const PostContainer({Key key, @required this.post}) : super(key: key);
+  const PostContainer({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class PostContainer extends StatelessWidget {
 
 class _PostStats extends StatelessWidget {
   final Post post;
-  const _PostStats({Key key, @required this.post}) : super(key: key);
+  const _PostStats({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +66,34 @@ class _PostStats extends StatelessWidget {
             Text('${post.shares} share')
           ],
         ),
-        const Divider(
-          color: Colors.red,
-        ),
+        const Divider(),
         Row(
-          children: [],
+          children: [
+            _PostButton(
+                icon: Icon(
+                  MdiIcons.thumbUpOutline,
+                  color: Colors.grey[600],
+                  size: 20,
+                ),
+                label: 'Like',
+                onTap: () {}),
+            _PostButton(
+                icon: Icon(
+                  MdiIcons.commentOutline,
+                  color: Colors.grey[600],
+                  size: 20,
+                ),
+                label: 'Comment',
+                onTap: () {}),
+            _PostButton(
+                icon: Icon(
+                  MdiIcons.shareOutline,
+                  color: Colors.grey[600],
+                  size: 20,
+                ),
+                label: 'Share',
+                onTap: () {})
+          ],
         )
       ],
     );
@@ -81,26 +105,31 @@ class _PostButton extends StatelessWidget {
   final String label;
   final Function onTap;
 
-  const _PostButton(
-      {Key key,
-      @required this.icon,
-      @required this.label,
-      @required this.onTap})
-      : super(key: key);
+  const _PostButton({
+    Key? key,
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        child: Row(
-          children: [
-            icon,
-            const SizedBox(
-              width: 4.0,
-            ),
-            Text(label)
-          ],
+    return Expanded(
+      child: InkWell(
+        onTap: () => onTap,
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              icon,
+              const SizedBox(
+                width: 4.0,
+              ),
+              Text(
+                label,
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -110,7 +139,7 @@ class _PostButton extends StatelessWidget {
 class _PostContent extends StatelessWidget {
   final Post post;
 
-  const _PostContent({Key key, @required this.post}) : super(key: key);
+  const _PostContent({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +154,7 @@ class _PostContent extends StatelessWidget {
           height: 8.0,
         ),
         post.imageUrl != null
-            ? CachedNetworkImage(imageUrl: post.imageUrl)
+            ? CachedNetworkImage(imageUrl: post.imageUrl ?? '')
             : const SizedBox.shrink()
       ],
     );
@@ -134,7 +163,7 @@ class _PostContent extends StatelessWidget {
 
 class _PostHeader extends StatelessWidget {
   final Post post;
-  const _PostHeader({Key key, @required this.post}) : super(key: key);
+  const _PostHeader({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
