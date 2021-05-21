@@ -19,15 +19,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
     Scaffold(),
     Scaffold(),
     Scaffold(),
-    Scaffold(),
   ];
   final List<IconData> _icons = const [
     Icons.home,
     Icons.ondemand_video,
-    MdiIcons.accountCircleOutline,
-    MdiIcons.accountGroupOutline,
+    MdiIcons.menu,
+    MdiIcons.facebookGaming,
     MdiIcons.bellOutline,
-    Icons.menu
   ];
   int _selectedIndex = 0;
 

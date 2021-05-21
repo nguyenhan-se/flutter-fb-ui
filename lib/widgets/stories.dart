@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fb_clone/config/palette.dart';
-import 'package:fb_clone/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 
+import 'package:fb_clone/config/palette.dart';
+import 'package:fb_clone/widgets/profile_avatar.dart';
 import 'package:fb_clone/models/models.dart';
 
 class Stories extends StatelessWidget {

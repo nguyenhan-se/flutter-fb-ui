@@ -37,7 +37,8 @@ class ProfileAvatar extends StatelessWidget {
                     color: Palette.online,
                     shape: BoxShape.circle,
                     border: Border.all(width: 2.0, color: Colors.white)),
-              ))
+              ),
+            )
           : const SizedBox.shrink()
     ]);
   }

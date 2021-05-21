@@ -70,7 +70,11 @@ class _HomeScreenMobile extends StatelessWidget {
         SliverPadding(
           padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
           sliver: SliverToBoxAdapter(
-            child: Stories(currentUser: currentUser, stories: stories),
+            // child: Stories(currentUser: currentUser, stories: stories),
+            child: StoriesAnimation(
+              currentUser: currentUser,
+              stories: stories,
+            ),
           ),
         ),
         SliverList(
